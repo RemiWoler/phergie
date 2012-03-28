@@ -44,6 +44,16 @@ class Phergie_Plugin_UserInfo extends Phergie_Plugin_Abstract
      */
     protected $store = array();
 
+
+    /**
+     *
+     */
+    public function onLoad()
+    {
+        $plugins = $this->getPluginHandler();
+        $plugins->getPlugin('Command');
+        //$plugins->getPlugin('Time');
+    }
     /**
      * Tracks mode changes
      *

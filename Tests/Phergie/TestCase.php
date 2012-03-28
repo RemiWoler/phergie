@@ -240,9 +240,8 @@ abstract class Phergie_TestCase extends PHPUnit_Framework_TestCase
      *
      * @return Phergie_Event_Request
      */
-    protected function getMockEvent($type, array $args = array(),
-        $nick = null, $source = null
-    ) {
+    protected function getMockEvent($type, array $args = array(), $nick = null, $source = null)
+    {
         $methods = array('getNick', 'getSource');
         foreach (array_keys($args) as $arg) {
             if (is_int($arg) || ctype_digit($arg)) {
@@ -256,6 +255,8 @@ abstract class Phergie_TestCase extends PHPUnit_Framework_TestCase
             'Phergie_Event_Request',
             $methods
         );
+
+        $event->setType($type);
 
         $nick = $nick ? $nick : $this->nick;
         $event
